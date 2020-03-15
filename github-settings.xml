@@ -23,10 +23,12 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub OWNER Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/OWNER/REPOSITORY </url>
+                    <url>https://maven.pkg.github.com/bacteria/repository </url>
                 </repository>
             </repositories>
+
         </profile>
+
     </profiles>
 
     <servers>
