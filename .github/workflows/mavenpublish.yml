@@ -24,6 +24,6 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: public to git
-      run: mvn deploy -Pgithub
+      run: mvn install deploy -Pgithub
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
