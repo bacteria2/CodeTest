@@ -8,8 +8,8 @@
     <servers>
         <server>
             <id>github</id>
-            <username>${GITHUB_USERNAME}</username>
-            <passphrase>${GITHUB_TOKEN}</passphrase>
+            <username>${env.GITHUB_USERNAME}</username>
+            <passphrase>${env.GITHUB_TOKEN}</passphrase>
         </server>
     </servers>
     <profiles>
