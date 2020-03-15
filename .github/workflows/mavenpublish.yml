@@ -12,9 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
     - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
       with:
         java-version: 1.8
         #server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
@@ -24,8 +24,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: public to git
-      run: mvn --settings github-settings.xml deploy -DGITHUB_TOKEN=${{ secrets.ACCESS_TOKEN }} -DGITHUB_USERNAME=bacteria2
+      run: mvn -B deploy
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        GITHUB_USERNAME: bacteria2
 
