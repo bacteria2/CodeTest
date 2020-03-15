@@ -24,7 +24,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: public to git
-      run: mvn --settings github-settings.xml deploy
+      run: mvn --settings github-settings.xml deploy -DGITHUB_TOKEN=${{ secrets.ACCESS_TOKEN }} -DGITHUB_USERNAME=bacteria2
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         GITHUB_USERNAME: bacteria2
