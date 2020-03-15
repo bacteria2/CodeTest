@@ -26,6 +26,6 @@ jobs:
     - name: public to git
       run: mvn --settings github-settings.xml deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         GITHUB_USERNAME: bacteria2
 
