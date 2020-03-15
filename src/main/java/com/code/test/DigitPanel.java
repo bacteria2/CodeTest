@@ -3,9 +3,7 @@ package com.code.test;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 @Slf4j
 public class DigitPanel {
@@ -33,23 +31,25 @@ public class DigitPanel {
     public String digitMatrix99(Integer[] ditArray) {
 
         List<Integer> list = new ArrayList<>();
+        // 把数字拆分为个位数
         for (Integer i : ditArray) {
             String result = String.valueOf(i);
             for (char c : result.toCharArray()) {
                 list.add(Integer.valueOf(String.valueOf(c)));
             }
         }
-        return digitMatrix9(list.toArray(new Integer[0]));
+        return matrix(list.toArray(new Integer[0]));
     }
 
-    //100以内可以简化为矩阵相乘，元素个数为mxn
-    public String digitMatrix9(Integer[] digitArray) {
+
+    /**
+     *  计算拆分后的数组相乘结果，已字符串返回
+     *
+     * */
+    private String matrix(Integer[] digitArray) {
         String resultStr = "";
         List<String[]> validList = new ArrayList<>();
         for (int i : digitArray) {
-            if (i > 9 || i < 0) {
-                throw new IllegalArgumentException("illegal number:" + i);
-            }
             DigitNumber number = digitMap.get(String.valueOf(i));
             log.info(Arrays.toString(number.getCharArray()));
             if (number.getCharArray().length > 0) {
@@ -67,7 +67,9 @@ public class DigitPanel {
         return resultStr;
     }
 
-
+    /**
+     * 递归计算数组a 乘以 数组b的结果
+     * */
     private String[] multi(String[] a, String[] b) {
         if (a.length == 0) {
             return b;
@@ -77,6 +79,8 @@ public class DigitPanel {
         }
         int size = a.length * b.length;
         String[] result = new String[size];
+        // 以a数组为基底，循环完成a[i]+b[j]的计算
+        // 将结果放入result,索引为 i * b.length + j
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < b.length; j++) {
                 int index = i * b.length + j;
