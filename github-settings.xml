@@ -5,33 +5,24 @@
     <activeProfiles>
         <activeProfile>github</activeProfile>
     </activeProfiles>
-
+    <servers>
+        <server>
+            <id>github</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <passphrase>${env.GITHUB_TOKEN}</passphrase>
+        </server>
+    </servers>
     <profiles>
         <profile>
             <id>github</id>
-<!--            <repositories>-->
-<!--                <repository>-->
-<!--                    <id>central</id>-->
-<!--                    <url>https://repo1.maven.org/maven2</url>-->
-<!--                    <releases>-->
-<!--                        <enabled>true</enabled>-->
-<!--                    </releases>-->
-<!--                    <snapshots>-->
-<!--                        <enabled>true</enabled>-->
-<!--                    </snapshots>-->
-<!--                </repository>-->
-<!--                <repository>-->
-<!--                    <id>github</id>-->
-<!--                    <name>GitHub OWNER Apache Maven Packages</name>-->
-<!--                    <url>https://maven.pkg.github.com/bacteria/repository </url>-->
-<!--                </repository>-->
-<!--            </repositories>-->
             <properties>
                 <maven.compiler.source>1.8</maven.compiler.source>
                 <maven.compiler.target>1.8</maven.compiler.target>
                 <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
             </properties>
         </profile>
+
+
     </profiles>
 
 
